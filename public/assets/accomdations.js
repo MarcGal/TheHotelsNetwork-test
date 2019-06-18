@@ -2,7 +2,7 @@ const accomodations = [
 
   { 
       title: "Spatious atic in the center",
-      description: "",
+      description: "Generous and comfortable these modern furnished rooms offer two queen-size beds and are on the first floor.",
       size: 140,
       beds: 7,
       people: 10,
@@ -11,7 +11,7 @@ const accomodations = [
     },
   { 
       title: "Spatious atic in the center",
-      description: "",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       size: 75,
       beds: 4,
       people: 4,
@@ -20,8 +20,8 @@ const accomodations = [
     
   },
   { 
-      title: "Spatious atic in the center",
-      description: "",
+      title: "Sweet Bungalow",
+      description: "The perfect blend of comfort and culture, our superior room with a central garden view has the stunning, and comes with a double bed.",
       size: 80,
       beds: 2,
       people: 4,
@@ -31,7 +31,7 @@ const accomodations = [
   },
   { 
       title: "Spatious atic in the center",
-      description: "",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       size: 140,
       beds: 7,
       people: 10,
@@ -41,7 +41,7 @@ const accomodations = [
   },
   { 
       title: "Spatious atic in the center",
-      description: "",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       size: 40,
       beds: 1,
       people: 2,
@@ -50,8 +50,8 @@ const accomodations = [
     
   },
   { 
-      title: "Spatious atic in the center",
-      description: "",
+      title: "Los Cocos Suite",
+      description: "If you want a little extra from your stay, you might like our superior rooms. A garden view room has a private patio and a double bed.",
       size: 100,
       beds: 3,
       people: 5,
@@ -60,8 +60,8 @@ const accomodations = [
     
   },
   { 
-      title: "Spatious atic in the center",
-      description: "",
+      title: "Dreamy Apartment",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       size: 80,
       beds: 3,
       people: 3,
@@ -71,7 +71,7 @@ const accomodations = [
   },
   { 
       title: "Luxury loft for two",
-      description: "",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       size: 60,
       beds: 2,
       people: 2,
@@ -81,7 +81,7 @@ const accomodations = [
   },
   { 
       title: "Small but cozy",
-      description: "",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       size: 25,
       beds: 2,
       people: 2,
