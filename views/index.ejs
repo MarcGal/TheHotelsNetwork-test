@@ -68,11 +68,11 @@
     <div class="engine-wrapper">
         <div class="container text-center">
 
-            <form id="search" class="form-inline" action="">
+            <form id="search" class="form-inline"  action="/modify" method="GET">
 
                 <div class="form-group dates">
                     <div class="input-group date" data-date-format="dd/mm/yyyy">
-                        <input id="checkin" type="date" class="form-control" placeholder="<%= today %>" value= <%= today %> >
+                        <input id="checkin" type="date" class="form-control" name="checkin" value= <%=checkin%> >
                         <div class="input-group-addon" >
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -81,7 +81,7 @@
 
                 <div class="form-group dates">
                     <div class="input-group date" data-date-format="dd/mm/yyyy">
-                        <input id="checkout" type="date" class="form-control" placeholder="<%= tomorrow %>" value= <%= tomorrow %> >
+                        <input id="checkout" type="date" class="form-control" name="checkout" value=  <%=checkout%>>
                         <div class="input-group-addon" >
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -90,7 +90,7 @@
 
 
                 <div class="form-group select-inline">
-                    <select class="form-control" placeholder="Adults" id="adults">
+                    <select class="form-control" placeholder="Adults" name="adults" id="adults" form="search">
                         <option value="" selected>Adults</option>
                         <option value="1" selected="selected">Adults: 1</option>
                         <option value="2">Adults: 2</option>
@@ -104,7 +104,7 @@
                     </select>
                 </div>
                 <div class="form-group select-inline">
-                    <select class="form-control" placeholder="Children" id="children">
+                    <select class="form-control" placeholder="Children" name="children" id="children" form="search">
                         <option value="" selected>Children</option>
                         <option value="1" selected="selected">Children: 1</option>
                         <option value="2">Children: 2</option>
@@ -120,7 +120,7 @@
 
 
                 <div class="form-group modify-button">
-                    <a href="#" class="btn btn-primary">Modify</a>
+                    <button type="submit" value="Submit" href="#" class="btn btn-primary">Modify</button>
                 </div>
             </form>
 
@@ -211,7 +211,7 @@
 
                     <div class="card-content">
                         <p class="main">Reservation date</p>
-                        <p class="base">From <strong><span id="checkin-summary"><%= today %></span></strong> to <strong id="checkout-summary"><%= tomorrow %></strong></p>
+                        <p class="base">From <strong><span id="checkin-summary"><%= checkin %></span></strong> to <strong id="checkout-summary"><%= checkout %></strong></p>
                     </div>
 
                     <div class="card-content">
