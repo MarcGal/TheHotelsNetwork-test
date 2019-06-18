@@ -5,16 +5,21 @@ const sortAccommodations = require('../helpers/sortAccommodation');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
-  const today = new Date().toJSON().slice(0,10);
-  const tomorrow = new Date(+new Date() + 86400000).toJSON().slice(0,10);
+  const checkin = new Date().toJSON().slice(0,10);
+  const checkout = new Date(+new Date() + 86400000).toJSON().slice(0,10);
   const accommodationSelection = await accommodations.filter( accommodation => { return accommodation.people <= 2});
   await sortAccommodations(accommodationSelection);
-  res.render('index', { today, tomorrow, accommodationSelection });
+  res.render('index', { checkin, checkout, accommodationSelection });
 });
 
 router.get('/modify', async (req, res, next) => {
-  console.log('we are in the modify route', req.query);
-  res.render('index', { });
+  const {checkin, checkout, adults, children } = req.query;
+  const adultsNumber = parseFloat(adults);
+  const childrenNumber = parseFloat(children);
+  const people = adultsNumber + childrenNumber;
+  const accommodationSelection = await accommodations.filter( accommodation => { return accommodation.people >= people});
+  await sortAccommodations(accommodationSelection);
+  res.render('index', { checkin, checkout, adults, children, accommodationSelection });
 });
 
 module.exports = router;
