@@ -72,7 +72,7 @@
 
                 <div class="form-group dates">
                     <div class="input-group date" data-date-format="dd/mm/yyyy">
-                        <input id="checkin" type="date" class="form-control" placeholder="<%= today %>" value=<%= today %>>
+                        <input id="checkin" type="date" class="form-control" placeholder="<%= today %>" value= <%= today %> >
                         <div class="input-group-addon" >
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -81,7 +81,7 @@
 
                 <div class="form-group dates">
                     <div class="input-group date" data-date-format="dd/mm/yyyy">
-                        <input id="checkout" type="date" class="form-control" placeholder="<%= tomorrow %>" value=<%= tomorrow %>>
+                        <input id="checkout" type="date" class="form-control" placeholder="<%= tomorrow %>" value= <%= tomorrow %> >
                         <div class="input-group-addon" >
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -142,102 +142,46 @@
     <div class="row">
         <div class="col-md-8 main">
 
-            <!-- ROOM 1 -->
-            <div class="card clearfix pointer active">
-                <div class="room-image">
-                    <img src="images/cocos/room_1.png" width="100%" />
-                </div>
-
-                <div class="room-content">
-                    <h5 class="form-group">Mini Dreamy Room</h5>
-                    <p class="form-group">Generous and comfortable these modern furnished rooms offer two queen-size beds and are on the first floor.</p>
-
-                    <p class="form-group">Size: 25m2</p>
-
-                    <div class="room-info">
-                        <div class="item">
-                            <span class="inline-block">
-                                <img src="images/icons/double-bed.svg" width="40">
-                            </span>
-                            <div>Beds: 1</div>
-                        </div>
-                        <div class="item">People: 2</div>
-                        <div class="item price text-right">
-                            <span class="line-through">€400</span>
-                            €350
+            <!-- ROOMS -->
+            <% accommodationSelection.forEach((accommodation) => { %>
+                <div class="card clearfix pointer active">
+                    <div class="room-image">
+                        <img src= <%= accommodation.photo %> width="100%" />
                     </div>
-                    </div>
-                </div>
 
-            </div>
+                    <div class="room-content">
+                        <h5 class="form-group"> <%= accommodation.title %> </h5>
+                        <p class="form-group"> <%= accommodation.description %> </p>
 
-            <!-- ROOM 2 -->
-            <div class="card clearfix pointer">
-                <div class="room-image">
-                    <img src="images/cocos/room_2.png" width="100%" />
-                </div>
+                        <p class="form-group">Size: <%= accommodation.size %>m2 </p>
 
-                <div class="room-content">
-                    <h5 class="form-group">Sweet Bungalow</h5>
-                    <p class="form-group">The perfect blend of comfort and culture, our superior room with a central garden view has the stunning, and comes with a double bed.</p>
-
-                    <p class="form-group">Size: 50m2</p>
-
-                    <div class="room-info">
-                        <div class="item">
-                            <span class="inline-block">
-                                <img src="images/icons/double-bed.svg" width="40">
-                            </span>
-                            <div>Beds: 1</div>
+                        <div class="room-info">
+                            <div class="item">
+                                <span class="inline-block">
+                                    <img src="images/icons/double-bed.svg" width="40">
+                                </span>
+                                <div>Beds: <%= accommodation.beds %> </div>
+                            </div>
+                            <div class="item">People: <%= accommodation.people %> </div>
+                            <div class="item price text-right">
+                                <span class="line-through">€400</span>
+                                €<%=accommodation.price  %>
                         </div>
-                        <div class="item">People: 2</div>
-                        <div class="item price text-right">
-                            <span class="line-through">€500</span>
-                            €400
                         </div>
                     </div>
+
                 </div>
-
-            </div>
-
-            <!-- ROOM 3 -->
-            <div class="card clearfix pointer">
-                <div class="room-image">
-                    <img src="images/cocos/room_3.png" width="100%" />
-                </div>
-
-                <div class="room-content">
-                    <h5 class="form-group">Los Cocos Suite</h5>
-                    <p class="form-group">If you want a little extra from your stay, you might like our superior rooms. A garden view room has a private patio and a double bed.</p>
-
-                    <p class="form-group">Size: 125m2</p>
-
-                    <div class="room-info">
-                        <div class="item">
-                            <span class="inline-block">
-                                <img src="images/icons/double-bed.svg" width="40">
-                            </span>
-                            <div>Beds: 3</div>
-                        </div>
-                        <div class="item">People: 4</div>
-                        <div class="item price text-right">
-                            <span class="line-through">€750</span>
-                            €600
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <% }) %>
 
         </div>
 
         <!-- SIDEBAR -->
         <div class="col-md-4 sidebar">
-
+        <% const selected = accommodationSelection[0] %>
             <div class="card">
                 <h2>Reservation Summary</h2>
                 <div class="clearfix">
-                    <h5 class="pull-left">Mini Dreamy Room</h5>
+                    <h5 class="pull-left"><%= selected.title %></h5>
                     <div class="form-group pull-right">
                         <select class="pull-right" id="rooms">
                             <option>1</option>
@@ -267,13 +211,13 @@
 
                     <div class="card-content">
                         <p class="main">Reservation date</p>
-                        <p class="base">From <strong><span id="checkin-summary">4/7/2018</span></strong> to <strong id="checkout-summary">15/7/2018</strong></p>
+                        <p class="base">From <strong><span id="checkin-summary"><%= today %></span></strong> to <strong id="checkout-summary"><%= tomorrow %></strong></p>
                     </div>
 
                     <div class="card-content">
                         <p class="main">People</p>
-                        <p class="base" id="adults-summary">2 Adults</p>
-                        <p class="base" id="children-summary">2 Children</p>
+                        <p class="base" id="adults-summary">1 Adults</p>
+                        <p class="base" id="children-summary">1 Children</p>
                     </div>
 
                     <div class="card-checkout clearfix">
@@ -282,7 +226,7 @@
                             <p class="base"><a href="#">Price details ></a></p>
                         </div>
                         <div class="right pull-right">
-                            <p class="main">€350</p>
+                            <p class="main">€<%=selected.price%> </p>
                         </div>
                     </div>
 
@@ -331,7 +275,6 @@
     </div>
 
 </footer>
-
 
 </body>
 </html>
