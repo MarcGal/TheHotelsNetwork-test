@@ -12,4 +12,9 @@ router.get('/', async (req, res, next) => {
   res.render('index', { today, tomorrow, accommodationSelection });
 });
 
+router.get('/modify', async (req, res, next) => {
+  console.log('we are in the modify route', req.query);
+  res.render('index', { });
+});
+
 module.exports = router;
