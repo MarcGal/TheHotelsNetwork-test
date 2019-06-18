@@ -1,8 +1,7 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.dates {
+  margin-right: 7%;
 }
 
-a {
-  color: #00B7FF;
+.modify-button{
+  margin-top: 2%;
 }
