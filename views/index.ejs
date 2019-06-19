@@ -216,8 +216,8 @@
 
                     <div class="card-content">
                         <p class="main">People</p>
-                        <p class="base" id="adults-summary">1 Adults</p>
-                        <p class="base" id="children-summary">1 Children</p>
+                        <p class="base" id="adults-summary"><%=adults%> Adults</p>
+                        <p class="base" id="children-summary"><%=children%> Children</p>
                     </div>
 
                     <div class="card-checkout clearfix">
@@ -230,9 +230,14 @@
                         </div>
                     </div>
 
-                    <a href="#" class="btn btn-primary btn-group-justified">
-                        Save
-                    </a>
+                    <form id="reserve"  action="/reserve/<%=selected.price%>/<%=selected.title%>/<%= checkin %>/<%= checkout %>/<%=adults%>/<%=children%>/promoCode" method="GET">
+                        <div class="promo-container">
+                            <p class="main">Enter promo code if you have one </p>
+                            <input id="promo" type="text" class="promo" name="promoCode">
+                        </div>
+                        <button type="submit" value="Submit" href="#" name="save"   class="btn btn-primary btn-group-justified">Save</button>
+                    </form>
+
                 </div>
             </div>
 
