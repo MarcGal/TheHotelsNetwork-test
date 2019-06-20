@@ -143,8 +143,8 @@
         <div class="col-md-8 main">
 
             <!-- ROOMS -->
-            <% accommodationSelection.forEach((accommodation) => { %>
-                <div class="card clearfix pointer active">
+            <% accommodationSelection.forEach((accommodation, index) => { %>
+                <div class="card clearfix pointer active" onclick="select()">
                     <div class="room-image">
                         <img src= <%= accommodation.photo %> width="100%" />
                     </div>
@@ -160,14 +160,14 @@
                                 <span class="inline-block">
                                     <img src="images/icons/double-bed.svg" width="40">
                                 </span>
-                                <div>Beds: <%= accommodation.beds %> </div>
+                            <div>Beds: <%= accommodation.beds %> </div>
                             </div>
                             <div class="item">People: <%= accommodation.people %> </div>
-                            <div class="item price text-right">
-                                <span class="line-through">€400</span>
-                                €<%=accommodation.price  %>
+                            <div class="item price text-right accommodation-price">
+                                <p>€<%=accommodation.price  %></p>
+                            </div>
                         </div>
-                        </div>
+                        <button onclick="select(<%=accommodation.price%>)" class="btn btn-primary">Select</button>
                     </div>
 
                 </div>
@@ -177,7 +177,7 @@
 
         <!-- SIDEBAR -->
         <div class="col-md-4 sidebar">
-        <% const selected = accommodationSelection[0] %>
+        <% selected = accommodationSelection[0] %>
             <div class="card">
                 <h2>Reservation Summary</h2>
                 <div class="clearfix">
@@ -226,7 +226,7 @@
                             <p class="base"><a href="#">Price details ></a></p>
                         </div>
                         <div class="right pull-right">
-                            <p class="main">€<%=selected.price%> </p>
+                            <p class="main selected-price">€<%=selected.price%> </p>
                         </div>
                     </div>
 
@@ -281,5 +281,13 @@
 
 </footer>
 
+     <script type="text/javascript">
+        var selectedPrice = document.querySelector(".selected-price");
+        console.log(selectedPrice);
+        const select = (accommodationPrice) => {
+            console.log('we are inside', accommodationPrice)
+            selectedPrice.innerText = accommodationPrice.toString();
+        }
+ </script>
 </body>
 </html>
