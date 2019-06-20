@@ -22,16 +22,29 @@ router.get('/modify', async (req, res, next) => {
   const people = adultsNumber + childrenNumber;
   const accommodationSelection = await accommodations.filter( accommodation => { return accommodation.people >= people});
   await sortAccommodations(accommodationSelection);
-  res.render('index', { checkin, checkout, adults, children, accommodationSelection });
+  res.render('index', { checkin, checkout, adults, children, accommodationSelection});
 });
 
-router.get('/reserve/:price/:title/:checkin/:checkout/:adults/:children/:promoCode', async (req, res, next) => {
+router.get('/reserve/:price/:title/:checkin/:checkout/:adults/:children/:promoCode', (req, res, next) => {
   const { promoCode } = req.query;
+  const promoPreFix = promoCode.slice(0, 3);
+  const promoPercentage = parseFloat(promoCode.slice(3, 5));
   const {price, title, checkin, checkout, adults, children } = req.params;
-  console.log(price, checkin, checkout, adults, children);
-  console.log(promoCode)
-  
-  res.render('checkout', { price, title, checkin, checkout, adults, children });
+  let validPromo='';
+
+  if (promoCode.length === 5 && promoPreFix === 'THN' && promoPercentage <= 99 && promoPercentage >= 1){
+    validPromo = true
+  } else {
+    validPromo = false
+  }
+
+  if (validPromo === false ){
+      const errorMessage = 'Your promo code is incorrect, please try again or proceed without discount';
+      res.render('checkout', { price, title, checkin, checkout, adults, children, errorMessage, validPromo });
+  } else if (validPromo === true ) {
+    res.render('checkout', { price, title, checkin, checkout, adults, children, validPromo, promoPercentage });
+  }
+
 });
 
 module.exports = router;
