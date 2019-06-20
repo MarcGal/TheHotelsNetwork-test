@@ -13,3 +13,7 @@
 .promo {
   margin: 5%;
 }
+
+.error-message{
+  color: red;
+}
