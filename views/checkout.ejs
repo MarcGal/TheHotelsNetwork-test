@@ -103,7 +103,7 @@
                     </div>
 
                     <% if ( validPromo === false ) { %>
-                        <form id="reserve"  action="/reserve/<%=price%>/<%=title%>/<%= checkin %>/<%= checkout %>/<%=adults%>/<%=children%>/promoCode" method="GET">
+                        <form id="reserve"  action="/save/<%=price%>/<%=title%>/<%= checkin %>/<%= checkout %>/<%=adults%>/<%=children%>/promoCode" method="GET">
                             <div class="promo-container">
                                 <p class="main error-message"> <%= errorMessage%> </p>
                                 <input id="promo" type="text" class="promo" name="promoCode">
