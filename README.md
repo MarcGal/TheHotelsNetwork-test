@@ -14,4 +14,4 @@ Simle app allowing user to filter accommodations based on dates and number of pe
 - All routes are defined in the index.js file inside the routes folder.
 - The helpers folder contains the sorting function for rendered accommodations.
 - Fonts, images, stylesheets, and the accommodation data file are located in the public folder.
-- A descriptive approximation to the data structure and mdoels to be used is explained in the data-Structure file
+- A descriptive approximation to the data structure and models to be used is explained in the data-Structure file.
