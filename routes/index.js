@@ -25,7 +25,7 @@ router.get('/modify', async (req, res, next) => {
   res.render('index', { checkin, checkout, adults, children, accommodationSelection});
 });
 
-router.get('/reserve/:price/:title/:checkin/:checkout/:adults/:children/:promoCode', (req, res, next) => {
+router.get('/save/:price/:title/:checkin/:checkout/:adults/:children/:promoCode', (req, res, next) => {
   const { promoCode } = req.query;
   const promoPreFix = promoCode.slice(0, 3);
   const promoPercentage = parseFloat(promoCode.slice(3, 5));
