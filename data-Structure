@@ -1,0 +1,40 @@
+Base de datos y estructura de modelos
+
+Teniendo en cuenta las características de la aplicación, sería necesario crear por lo menos tres modelos de datos: 
+hoteles, usuarios, pisos, reservas. A Continuación se plantea una estructura sencilla para cada modelo, 
+indicando las relaciones entre los mismos; siempre siguiendo el principio de guardar el 1 en la N para mantener la relaciones.
+
+Hotel.model: {
+	Name:  type String,
+	address:  { type: GeoJSON},
+	Apartment: type Number,
+}
+
+Apartment.model: {
+	first-name: ‘’,
+	Address: { type: GeoJSON},
+	Facilities: type Array,
+	Reserved: [
+    { checkin: type date, checkout: type date },
+    { checkin: type date, checkout: type date },		
+  ]
+	People: type Number,
+	Hotel.ID: type ID,
+}
+
+User.model: {
+	first-name/lastname: type String,
+	Age, etc, etc.
+}
+
+Reservation.model: {
+	Checkin: type date,
+	Checkout: type date,
+	Price: type Number,
+	Adults: type Number,
+  Children: type Number,
+  apartment.ID : type ID
+  User.ID: type ID
+}
+
+
