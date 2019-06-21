@@ -144,7 +144,7 @@
 
             <!-- ROOMS -->
             <% accommodationSelection.forEach((accommodation, index) => { %>
-                <div class="card clearfix pointer active" onclick="select()">
+                <div class="card clearfix pointer active">
                     <div class="room-image">
                         <img src= <%= accommodation.photo %> width="100%" />
                     </div>
@@ -167,8 +167,7 @@
                                 <p>€<%=accommodation.price  %></p>
                             </div>
                         </div>
-                        <button onclick="select(<%=accommodation.price%>)" class="btn btn-primary">Select</button>
-                    </div>
+                     </div>
 
                 </div>
             <% }) %>
@@ -177,7 +176,7 @@
 
         <!-- SIDEBAR -->
         <div class="col-md-4 sidebar">
-        <% selected = accommodationSelection[0] %>
+        <% var selected = accommodationSelection[0] %>
             <div class="card">
                 <h2>Reservation Summary</h2>
                 <div class="clearfix">
@@ -230,7 +229,7 @@
                         </div>
                     </div>
 
-                    <form id="reserve"  action="/reserve/<%=selected.price%>/<%=selected.title%>/<%= checkin %>/<%= checkout %>/<%=adults%>/<%=children%>/promoCode" method="GET">
+                    <form id="reserve"  action="/save/<%=selected.price%>/<%=selected.title%>/<%= checkin %>/<%= checkout %>/<%=adults%>/<%=children%>/promoCode" method="GET">
                         <div class="promo-container">
                             <p class="main">Enter promo code if you have one </p>
                             <input id="promo" type="text" class="promo" name="promoCode">
@@ -240,7 +239,6 @@
 
                 </div>
             </div>
-
 
         </div>
     </div>
@@ -280,14 +278,5 @@
     </div>
 
 </footer>
-
-     <script type="text/javascript">
-        var selectedPrice = document.querySelector(".selected-price");
-        console.log(selectedPrice);
-        const select = (accommodationPrice) => {
-            console.log('we are inside', accommodationPrice)
-            selectedPrice.innerText = accommodationPrice.toString();
-        }
- </script>
 </body>
 </html>
